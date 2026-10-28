@@ -1,6 +1,8 @@
 class Solution:
     def permute(self, nums: list[int]) -> list[list[int]]:
         res=[]
+        if len(nums)<=1:
+            return [nums]
         def combi(start):
             if start==len(nums):
                 res.append(list(nums))

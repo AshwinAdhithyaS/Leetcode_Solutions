@@ -4,7 +4,7 @@ class Solution:
         pres=0
         for n in nums:
             pres+=n
-            lar=max(lar,pres)
+            lar=pres if pres > lar else lar
             if pres<0:
                 pres=0
         return lar

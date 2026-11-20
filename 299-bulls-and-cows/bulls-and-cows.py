@@ -4,13 +4,7 @@ class Solution:
         print(secretdic)
         cowc,bullc=0,0
         for i in range(len(guess)):
-            if guess[i] in secretdic and secretdic[guess[i]]!=0:
-                if guess[i]==secret[i]:
-                    bullc+=1
-                    secretdic[guess[i]]-=1
-        for i in range(len(guess)):
-            if guess[i] in secretdic and secretdic[guess[i]]!=0:
-                if guess[i]!=secret[i]:
-                    cowc+=1
-                    secretdic[guess[i]]-=1
-        return str(bullc)+'A'+str(cowc)+'B'
+            bullc+=int(secret[i]==guess[i])
+        for j in set(secret):
+            cowc+=min(secret.count(j),guess.count(j))
+        return str(bullc)+'A'+str(cowc-bullc)+'B'
